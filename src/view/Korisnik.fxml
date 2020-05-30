@@ -30,14 +30,14 @@
                <children>
                   <ButtonBar layoutX="14.0" layoutY="401.0" prefHeight="67.0" prefWidth="396.0">
                     <buttons>
-                        <TextField prefHeight="34.0" prefWidth="211.0" styleClass="input" stylesheets="@style.css" />
+                        <TextField fx:id="nazivAlbumTxt" prefHeight="34.0" prefWidth="211.0" styleClass="input" stylesheets="@style.css" />
                         <Button mnemonicParsing="false" onAction="#createAlbum" prefHeight="35.0" styleClass="btn" stylesheets="@style.css" text="Kreiraj novi album" textFill="RED" />
                     </buttons>
                   </ButtonBar>
                   <ButtonBar layoutX="14.0" layoutY="339.0" prefHeight="40.0" prefWidth="356.0">
                     <buttons>
                         <Button mnemonicParsing="false" onAction="#brisiAlbum" prefHeight="33.0" prefWidth="142.0" styleClass="btn" stylesheets="@style.css" text="Izbriši album" textFill="RED" />
-                      <Button mnemonicParsing="false" prefHeight="33.0" styleClass="btn" stylesheets="@style.css" text="Otvori album" textFill="RED" />
+                      <Button mnemonicParsing="false" onAction="#otvoriAlbum" prefHeight="33.0" styleClass="btn" stylesheets="@style.css" text="Otvori album" textFill="RED" />
                     </buttons>
                   </ButtonBar>
                   <Label fx:id="uspjehLbl" layoutX="77.0" layoutY="380.0" prefHeight="27.0" prefWidth="136.0" text="Izbrisali ste album" textAlignment="CENTER" textFill="#00ff0d" visible="false">
@@ -45,7 +45,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="albumView" layoutY="53.0" prefHeight="267.0" prefWidth="438.0" AnchorPane.bottomAnchor="246.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+                  <TableView fx:id="AlbumView" layoutY="53.0" prefHeight="267.0" prefWidth="438.0" AnchorPane.bottomAnchor="246.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
                     <columns>
                       <TableColumn fx:id="NazivAlbumCol" prefWidth="131.0" text="Naziv Albuma" />
                       <TableColumn fx:id="datumCol" prefWidth="109.0" text="Datum" />

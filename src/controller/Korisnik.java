@@ -6,14 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import main.Main;
 import model.Album;
-import model.Slika;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Blob;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -22,28 +20,29 @@ public class Korisnik implements Initializable {
    @FXML
     Label loggedUserLbl;
    @FXML
+    TextField nazivAlbumTxt;
+   @FXML
     TableView<Album> AlbumView;
    @FXML
    TableColumn<Album, String>NazivAlbumaCol;
    @FXML
    TableColumn<Album, Timestamp>datumCol;
-   @FXML
-    TableView<Slika>SlikaView;
-   @FXML
-    TableColumn<Slika, Blob>sadrzaj;
 
+    public void otvoriAlbum(ActionEvent e)throws Exception{
+Main.showWindow(getClass(),"../view/Album.fxml","Album",600,400);
+    }
    public void createAlbum(ActionEvent e) throws Exception{
-           if(!this.NazivAlbumaCol.getText().equals(""))
-           {
+           if(!this.nazivAlbumTxt.getText().equals(""))
+           {   Album a = new Album();
+
                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-               Album a = new Album();
-               a.setNazivAlbuma(this.NazivAlbumaCol.getText());
+               a.setNazivAlbuma(this.nazivAlbumTxt.getText());
                a.setKreiran(timestamp);
+               a.setIdOsoba(Login.loggedInTeacher.getId());
                a.save();
                this.populateTableView();
 
-               this.NazivAlbumaCol.setText("");
-               this.datumCol.setText("");
+               this.nazivAlbumTxt.setText("");
 
            }
    }
@@ -59,8 +58,8 @@ public class Korisnik implements Initializable {
                 + Login.loggedInTeacher.getPrezime()
         );
 
-      this.NazivAlbumaCol.setCellValueFactory(new PropertyValueFactory<>("nazivAlbuma"));
-      this.datumCol.setCellValueFactory(new PropertyValueFactory<>("kreiran"));
+ // this.NazivAlbumaCol.setCellValueFactory(new PropertyValueFactory<>("nazivAlbuma"));
+ // this.datumCol.setCellValueFactory(new PropertyValueFactory<>("kreiran"));
 
         this.populateTableView();
     }

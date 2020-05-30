@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Album;
-import model.Osoba;
 import model.Slika;
 import model.Table;
 
@@ -18,8 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Table.create(Osoba.class);
-        Table.create(Album.class);
+      //  Table.create(Osoba.class);
+      //  Table.create(Album.class);
         Table.create(Slika.class);
 
 

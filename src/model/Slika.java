@@ -1,6 +1,9 @@
 package model;
 
-import java.sql.Blob;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import javax.sql.rowset.serial.SerialBlob;
 import java.sql.Timestamp;
 
 public class Slika extends Table {
@@ -8,8 +11,21 @@ public class Slika extends Table {
     int id;
     @Entity(type = "VARCHAR", size = 50,isnull = false)
     String nazivSlike;
-    @Entity(type = "BLOB", isnull = false)
-    Blob sadrzaj;
+
+    public ImageView getSadrzajSlike() {
+      try {
+          return new ImageView(new Image(sadrzajSlike.getBinaryStream()));
+      }catch (Exception e){
+          return null;
+      }
+    }
+
+    public void setSadrzajSlike(SerialBlob sadrzajSlike) {
+        this.sadrzajSlike = sadrzajSlike;
+    }
+
+    @Entity(type = "BLOB", size = 10000000, isnull = false)
+    SerialBlob sadrzajSlike;
     @Entity(type = "TIMESTAMP", isnull = false)
     Timestamp dodano;
     @ForeignKey(table = "Album",attribute = "id")
@@ -30,14 +46,6 @@ public class Slika extends Table {
 
     public void setNazivSlike(String nazivSlike) {
         this.nazivSlike = nazivSlike;
-    }
-
-    public Blob getSadrzaj() {
-        return sadrzaj;
-    }
-
-    public void setSadrzaj(Blob sadrzaj) {
-        this.sadrzaj = sadrzaj;
     }
 
     public Timestamp getDodano() {

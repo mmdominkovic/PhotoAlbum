@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Album">
+   <children>
+      <ButtonBar layoutX="28.0" layoutY="322.0" prefHeight="51.0" prefWidth="407.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#openFileDialog" prefHeight="43.0" prefWidth="107.0" styleClass="btn" stylesheets="@style.css" text="Dodaj sliku" textFill="RED" />
+            <TextField fx:id="nazivSlikeTxt" prefHeight="26.0" prefWidth="258.0" />
+        </buttons>
+      </ButtonBar>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#vratiNazad" prefHeight="37.0" prefWidth="78.0" styleClass="btn" stylesheets="@style.css" text="Nazad" textFill="RED" />
+      <TableView layoutX="14.0" layoutY="66.0" prefHeight="235.0" prefWidth="436.0">
+        <columns>
+          <TableColumn fx:id="nazivSlikeTxt" prefWidth="75.0" text="Naziv slike" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button layoutX="481.0" layoutY="74.0" mnemonicParsing="false" prefHeight="45.0" styleClass="btn" stylesheets="@style.css" text="Izbriši sliku" textFill="RED" />
+   </children>
+</AnchorPane>
