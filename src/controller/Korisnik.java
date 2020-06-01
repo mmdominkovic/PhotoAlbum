@@ -28,7 +28,7 @@ public class Korisnik implements Initializable {
    @FXML
    TableColumn<Album, Timestamp>datumCol;
 
-    public void otvoriAlbum(ActionEvent e)throws Exception{
+    public void otvoriAlbum(ActionEvent e) throws IOException {
 Main.showWindow(getClass(),"../view/Album.fxml","Album",600,400);
     }
    public void createAlbum(ActionEvent e) throws Exception{
