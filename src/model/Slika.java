@@ -11,6 +11,23 @@ public class Slika extends Table {
     int id;
     @Entity(type = "VARCHAR", size = 50,isnull = false)
     String nazivSlike;
+    @Entity(type = "VARCHAR",size = 11, isnull = true)
+    String favorites;
+    @Entity(type = "BLOB", size = 10000000, isnull = false)
+    SerialBlob sadrzajSlike;
+    @Entity(type = "TIMESTAMP", isnull = false)
+    Timestamp dodano;
+    @ForeignKey(table = "Album",attribute = "id")
+    @Entity(type = "INTEGER", size = 11)
+    int idAlbum;
+
+    public String getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(String favorites) {
+        this.favorites = favorites;
+    }
 
     public ImageView getSadrzajSlike() {
       try {
@@ -24,13 +41,8 @@ public class Slika extends Table {
         this.sadrzajSlike = sadrzajSlike;
     }
 
-    @Entity(type = "BLOB", size = 10000000, isnull = false)
-    SerialBlob sadrzajSlike;
-    @Entity(type = "TIMESTAMP", isnull = false)
-    Timestamp dodano;
-    @ForeignKey(table = "Album",attribute = "id")
-    @Entity(type = "INTEGER", size = 11)
-    int idAlbum;
+
+
 
     public int getId() {
         return id;

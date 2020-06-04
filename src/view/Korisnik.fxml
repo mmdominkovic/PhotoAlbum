@@ -47,7 +47,7 @@
                   </Label>
                   <TableView fx:id="AlbumView" layoutY="53.0" prefHeight="267.0" prefWidth="438.0" AnchorPane.bottomAnchor="246.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
                     <columns>
-                      <TableColumn fx:id="NazivAlbumCol" prefWidth="131.0" text="Naziv Albuma" />
+                      <TableColumn fx:id="nazivAlbumCol" prefWidth="131.0" text="Naziv Albuma" />
                       <TableColumn fx:id="datumCol" prefWidth="109.0" text="Datum" />
                     </columns>
                   </TableView>

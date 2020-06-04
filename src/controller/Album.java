@@ -1,6 +1,5 @@
 package controller;
 
-
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import main.Main;
 import model.Slika;
+
 import javax.imageio.ImageIO;
 import javax.sql.rowset.serial.SerialBlob;
 import java.awt.image.BufferedImage;
@@ -29,10 +29,11 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class Album implements Initializable {
-   @FXML
+
+    @FXML
    Label loggedUserLbl;
     @FXML
-    TableView slikaView;
+    TableView<Object> slikaView;
     @FXML
     TextField nazivTxt;
     @FXML
@@ -52,7 +53,7 @@ public void dodajSliku(ActionEvent e) throws Exception{
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     s.setDodano(timestamp);
    s.setNazivSlike(this.nazivTxt.getText());
-   s.setIdAlbum(Album.getId());
+  s.setIdAlbum(Login.loggedInTeacher.getId());
     SerialBlob image =new SerialBlob(imageToByte(this.buffImage));
     s.setSadrzajSlike(image);
     s.save();
@@ -86,7 +87,7 @@ this.populateTableView();
 }
     private void populateTableView(){
         try {
-            this.slikaView.getItems().setAll((Collection<? extends model.Slika>) model.Slika.list(model.Slika.class));
+            this.slikaView.getItems().setAll((Collection<? extends Slika>)Slika.list(Slika.class));
 
         } catch (Exception e) {
             System.out.println("Nismo uspjeli dohvatiti podatke");
